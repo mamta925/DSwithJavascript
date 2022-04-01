@@ -7,5 +7,5 @@ Sliding Window Approach:  this pattern involves creating a window which can eith
                        one position to another ex: longest unique string
 
 Divide and Conquer: this pattern involves dividing a data set into smaller chunks and then repeating a process
-                      with a subset of data.
+                      with a subset of data. like binary search
 */
