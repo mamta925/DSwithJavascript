@@ -6,5 +6,8 @@
  *  Binary Search Trees(BST): 
  *             Each node can have at most 2 child
  *             Every node to the the left of a parent node always less than the parent and vice versa
- *             
+ * 
+ * Tree Traversal:
+ *             Breadth First Search
+ *             Depth first Search              
  */
