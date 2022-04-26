@@ -154,3 +154,64 @@ var maxProfit = function(prices) {
 maxProfit()
 
 // https://docs.google.com/document/d/1JhLBhGoUWWTXPJnKhmkcwjl0nFHwzRbGdtDyTgfjeds/edit
+
+// //
+// //{}
+
+// let string = '{{}}}';
+
+// function findBalance(str) {
+//     let stack = [];
+//     for (let i = 0; i < str.length; i++) {
+//         if (str[i] === '{') {
+//             stack.push('{');
+//         }
+//         if (str[i] === '}') {
+//             if (!stack.length) return false;
+//             let lastSymbol = stack.pop();
+//             if (lastSymbol === '{') {
+//                 continue;
+//             } else {
+//                 return false;
+//             }
+//         }
+//     }
+//     return !stack.length ? true : false;
+// }
+// console.log(findBalance(string));
+
+// 1 I
+// 5 V
+// 10 X
+
+// XXXVI
+// XXIV
+// XXIX
+
+let maps = {
+    1: 'I',
+    4: 'IV',
+    5: 'V',
+    9: 'IX',
+    10: 'X',
+};
+
+let map = {
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+};
+
+function convertIntToRoman(num) {
+    let str = '';
+    for (let i in map) {
+        while (num >= map[i]) {
+            str += i;
+            num -= map[i];
+        }
+    }
+    return str;
+}
+console.log(convertIntToRoman(24));
