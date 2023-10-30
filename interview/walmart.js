@@ -104,3 +104,73 @@ console.log(input)
 
 
 /// 0,1,2
+
+
+
+// Ritika's interview SD3 first round 30th OCtober 2023
+
+//Q1
+// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+// The solution set must not contain duplicate triplets.
+
+// [-1, 1, 2, 0, -1, -3]
+
+
+
+
+// Q2
+// LINKED LIST SUM - 
+// list1 = 6 -> 7 -> 4
+// 476
+
+// list2 = 1 -> 9 -> 8
+// 891
+
+// newlist = 7 -> 6 -> 5 -> 2
+// 2567
+
+function add(head1, head2) {
+  let carry = 0; // 1
+  let newList = null;
+  if(!head1 && !head2) return;
+  while(head1 && head2) {
+      let sum = head1.value + head2.value + carry; // 13
+      carry = Math.floor(sum/10); // 1
+      newVal = sum % 10; // 3
+      // add node to list
+      head1 = head1.next; 
+      head2 = head2.next;
+  }
+  if (head1) {
+      while(head1) {
+          let sum = head1.value +carry; 
+          carry = Math.floor(sum/10); // 0
+          newVal = sum % 10;
+          // add node to list
+          head1 = head1.next;
+      }
+  }
+  if (head2) {
+      while(head2) {
+          let sum = head2.value +carry;
+          carry = Math.floor(sum/10);
+          newVal = sum % 10;
+          // add node to list
+          head2 = head2.next;
+      }
+  }
+  if (counter) {
+      // add counter as new node to the list
+  }
+}
+
+
+
+
+//Q3   
+// GIVEN MATRIX - 
+// [[A,B,C,E], 
+//  [S,F,C,S], 
+//  [A,D,E,E]]
+
+// find whether string present or not - 'ABCCED'
