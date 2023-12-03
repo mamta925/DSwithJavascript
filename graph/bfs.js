@@ -40,7 +40,7 @@ class Graph {
            this.adjacencyList[vertex].forEach(v => {
             if(!visited[v]){
                 queue.push(v);
-            visited[v] = true
+                visited[v] = true
             }
            }); 
         }

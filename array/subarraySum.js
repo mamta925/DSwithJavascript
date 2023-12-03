@@ -1,8 +1,9 @@
 class Solution 
 {
     //Function to find a continuous sub-array which adds up to a given number.
-    subarraySum(arr, n, s)
+    subarraySum(arr, s)
     {   
+      let n = arr.length;
         let curr_sum = arr[0];
         let res = [];
         let start = 0, last = 1

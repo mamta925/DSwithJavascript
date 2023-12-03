@@ -1,0 +1,94 @@
+{
+  "page": 1,
+  "per_page": 10,
+  "total": 3,
+  "total_pages": 1,
+  "data": [
+    {
+      "name": "Dallas",
+      "weather": "12 degree",
+      "status": ["Wind: 2Kmph", "Humidity: 5%"]
+    },
+    {
+      "name": "Dallupura",
+      "weather": "10 degree",
+      "status": ["Wind: 9Kmph", "Humidity: 14%"]
+    },
+    {
+      "name": "Vallejo",
+      "weather": "1 degree",
+      "status": ["Wind: 24Kmph", "Humidity: 56%"]
+    }
+  ]
+}
+
+
+'use strict';
+
+const fs = require('fs');
+const axios = require('axios');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+
+
+/*
+ * Complete the 'weatherStation' function below.
+ *
+ * The function is expected to return a STRING_ARRAY.
+ * The function accepts STRING keyword as parameter.
+ * API URL:  https://jsonmock.hackerrank.com/api/weather/search?name={keyword}
+ */
+
+async function weatherStation(keyword) {
+    let fullData = [];
+    let count = 1;
+    let totalPage = 1;
+    
+    while(count<=totalPage){
+   const API_URL = `https://jsonmock.hackerrank.com/api/weather/search?name=${keyword}&page=${count}`
+     let response = await fetch(API_URL);
+      let data = await response.json();
+       fullData = [...fullData, ...data]
+       count++;
+    }
+
+   
+   for(let i=0; i<fullData.length; i++ ){
+       let city = data[i];
+        const temperature = city.weatherStation.split(' ')[0];
+        const windSpeed = city.status[0].split(' ')[1];
+         const humidity = city.status[1].split(' ')[1];
+        console.log(`${cityName}, ${temperature},${windSpeed},${humidity}`);   
+   }
+}
+
+async function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const keyword = readLine();
+
+    const result = await weatherStation(keyword);
+
+    ws.write(result.join('\n') + '\n');
+
+    ws.end();
+}
