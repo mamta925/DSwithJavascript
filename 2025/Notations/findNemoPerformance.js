@@ -16,3 +16,6 @@ function findNemo(array){
 }
 
 findNemo(large)
+
+
+// O(n)   number of operations increases as size of input
