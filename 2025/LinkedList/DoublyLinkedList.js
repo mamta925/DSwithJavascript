@@ -2,10 +2,11 @@ class Node {
     constructor(value){
         this.next = null;
         this.value = value;
+        this.prev = null;
     }
 }
 
-class LinkedList {
+class DoublyLinkedList {
 
     constructor(value){
         this.head =  new Node(value);
@@ -15,6 +16,7 @@ class LinkedList {
     append(value){
         const newNode = new Node(value);
 
+        newNode.prev=this.tail;
         this.tail.next=newNode;
         this.tail = newNode;
         this.length++;
@@ -23,6 +25,7 @@ class LinkedList {
     }
     prepend(value){
        let newNode = new Node(value);
+       this.head.prev = newNode;
        newNode.next = this.head;
        this.head = newNode;
        this.length++;
@@ -43,7 +46,9 @@ class LinkedList {
                 count++;
             }
             const newNode = new Node(value);
+            newNode.prev= traversealPointer;
             newNode.next= traversealPointer.next;
+            traversealPointer.next.prev=newNode;
             traversealPointer.next = newNode;
 
         }
@@ -116,40 +121,21 @@ class LinkedList {
           current = current.next;
         }
     
-        return result;
-      }
-      reverse(){
-        if (!this.head || !this.head.next) return;
-
-        let prev = null;
-        let current = this.head;
-        this.tail = current;
-
-        while(current){
-            const nextNode = current.next;
-            current.next = prev;
-            prev = current;
-            current = nextNode;
-        }
-        this.head = prev;
-
+        return console.log(result);
       }
 
 }
 
-const linkedList =  new LinkedList(10);
-console.log(linkedList.traverse())
-linkedList.reverse()
-console.log(linkedList.traverse())
-linkedList.append(20)
-linkedList.append(50)
-linkedList.prepend(120)
-linkedList.insert(180, 3)
-linkedList.insert(280, 2)
+const doublyLinkedList =  new DoublyLinkedList(10);
+doublyLinkedList.append(20)
+doublyLinkedList.append(50)
+doublyLinkedList.prepend(120)
+doublyLinkedList.insert(180, 3)
+doublyLinkedList.insert(280, 2)
 
-linkedList.append(80)
-linkedList.append(2)
-linkedList.insert(2180, 9)
-console.log(linkedList.traverse())
-linkedList.reverse()
-console.log(linkedList.traverse())
+doublyLinkedList.append(80)
+doublyLinkedList.append(2)
+doublyLinkedList.insert(2180, 9)
+console.log(doublyLinkedList.traverse())
+doublyLinkedList.delete(9)
+console.log(doublyLinkedList.traverse())
