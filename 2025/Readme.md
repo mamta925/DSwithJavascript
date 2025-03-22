@@ -6,4 +6,5 @@
 ## 📊 Data Structure Visualizations
 
 Explore interactive visualizations of data structures and algorithms:  
-🔗 [Data Structure Visualizations – by USF](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+- 🔗 [Data Structure Visualizations – by USF](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+- 🔗 [VisuAlgo Data Structure](https://visualgo.net/en)
