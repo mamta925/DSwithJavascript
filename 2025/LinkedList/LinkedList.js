@@ -49,14 +49,22 @@ class LinkedList {
         }
    
     }
-    updatet(value, index){
-        if(!index){
-            //insert in last
-        } else {
-            //insert at index
-            //update start, tail , length
+    update(index, value) {
+        const node = this._getNode(index);
+        if (node) node.value = value;
+      }
+
+      _getNode(index) {
+        if (index < 0 || index >= this.length) return null;
+    
+        let current = this.head;
+        for (let i = 0; i < index; i++) {
+          current = current.next;
         }
-    }
+    
+        return current;
+      }
+    
     delete(index){
         if(index<1 && !this.length && index> this.length ){
             return undefined; 
@@ -89,25 +97,27 @@ class LinkedList {
              
         }
     }
-    get(value, index){
-        if(!index){
-            //insert in last
-        } else {
-            //insert at index
-            //update start, tail , length
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+    
+        let current = this.head;
+        for (let i = 0; i < index; i++) {
+          current = current.next;
         }
-    }
-    traverse(){
-        let travsersalPointer = this.head;
-
-        while(travsersalPointer!=null){
-            console.log(travsersalPointer.value)
-
-            travsersalPointer = travsersalPointer.next;
-
+    
+        return current.value;
+      }
+    traverse() {
+        const result = [];
+        let current = this.head;
+    
+        while (current !== null) {
+          result.push(current.value);
+          current = current.next;
         }
-       
-    }
+    
+        return result;
+      }
 
 }
 
