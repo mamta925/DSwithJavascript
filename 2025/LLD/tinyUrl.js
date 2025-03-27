@@ -16,3 +16,38 @@
  * n>(log base 62)Y
  * 
  */
+
+const BASE62_CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function encodeBase62(num) {
+  let encoded = '';
+  const base = BASE62_CHARS.length;
+  while (num > 0) {
+    encoded = BASE62_CHARS[num % base] + encoded;
+    num = Math.floor(num / base);
+  }
+  return encoded || '0'; // handle 0 case
+}
+
+function decodeBase62(str) {
+  let decoded = 0;
+  const base = BASE62_CHARS.length;
+  for (let char of str) {
+    decoded = decoded * base + BASE62_CHARS.indexOf(char);
+  }
+  return decoded;
+}
+
+function generateRandomKey(length = 6) {
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += BASE62_CHARS.charAt(Math.floor(Math.random() * BASE62_CHARS.length));
+  }
+  return result;
+}
+
+module.exports = {
+  encodeBase62,
+  decodeBase62,
+  generateRandomKey
+};
