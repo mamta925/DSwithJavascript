@@ -10,7 +10,17 @@ class Tree {
     constructor(value){
         this.root = new Node(value)
     }
-
+    bfsRecursive(queue = [this.root], visited = []) {
+        if (queue.length === 0) return visited;
+    
+        const node = queue.shift();
+        visited.push(node.value);
+    
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+    
+        return this.bfsRecursive(queue, visited);
+    }
 
 
 
@@ -67,6 +77,22 @@ class DFS {
         this.inOrder(pointer.right, result);
         return result;
        }
+       preOrderIterative(root) {
+        if (!root) return [];
+      
+        const stack = [root];
+        const result = [];
+      
+        while (stack.length > 0) {
+          const node = stack.pop();             
+          result.push(node.value);              
+      
+          if (node.right) stack.push(node.right);
+          if (node.left) stack.push(node.left);  
+        }
+      
+        return result;
+      }
 }
 
 const tree = new Tree(10);
