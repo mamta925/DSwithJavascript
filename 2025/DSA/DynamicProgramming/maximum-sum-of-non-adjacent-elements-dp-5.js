@@ -26,3 +26,40 @@ function maxSumMemo(nums, index = 0, memo = {}) {
 }
 
 console.log(maxSumOfNonAdjacentElements([1,2,4]))
+
+
+function maxSumTabulation(nums) {
+    const n = nums.length;
+    if (n === 0) return 0;
+    if (n === 1) return nums[0];
+
+    const dp = Array(n).fill(0);
+    dp[0] = nums[0];
+    dp[1] = Math.max(nums[0], nums[1]);
+
+    for (let i = 2; i < n; i++) {
+        dp[i] = Math.max(dp[i - 1], nums[i] + dp[i - 2]);
+    }
+
+    return dp[n - 1];
+}
+
+function maxSumOptimized(nums) {
+    const n = nums.length;
+    if (n === 0) return 0;
+    if (n === 1) return nums[0];
+
+    let prev1 = nums[0];         // dp[i - 1]
+    let prev2 = 0;               // dp[i - 2]
+
+    for (let i = 1; i < n; i++) {
+        const pick = nums[i] + prev2;
+        const notPick = prev1;
+        const current = Math.max(pick, notPick);
+
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
