@@ -1,0 +1,51 @@
+ .square {
+
+   width: 60px;
+    height: 60px;
+      padding: 10px;
+    font-size: 24px;
+     text-align: center;
+      vertical-align: middle;
+    border: 1px solid #ccc;
+      background-color: #fff;
+     cursor: pointer;
+    outline: none;
+   transition: transform 0.1s;
+    }
+ 
+    .square:active {
+     transform: scale(0.95);
+  }
+
+  .celebration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 999; /* Makes sure it appears over the board */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.celebration-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+.blink {
+    animation: blink 1s step-start 0s infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }

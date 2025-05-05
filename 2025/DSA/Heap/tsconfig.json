@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "target": "es2015",   // Target modern JavaScript version
+      "lib": ["es2015", "dom"],   // Include DOM library for browser-related objects like 'console'
+      "strict": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true
+    }
+  }
+  

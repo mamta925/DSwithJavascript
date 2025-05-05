@@ -1,0 +1,6 @@
+.board-row {
+    display: flex;
+  }
+  .board {
+    margin-top: 40px;
+  }
