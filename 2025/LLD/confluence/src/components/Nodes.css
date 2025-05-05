@@ -1,0 +1,11 @@
+.nodes li {
+    list-style: none;
+}
+.nodes li a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.nodes li a:hover {
+    text-decoration: underline;
+}

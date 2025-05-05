@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(
+    to right,
+    grey 20%,
+    #ffffff 20%
+  );
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
