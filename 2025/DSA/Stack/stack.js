@@ -73,53 +73,73 @@ history.printHistory();
  */
 
 
-class Node {
-    constructor(value){
-        this.value = value;
-        this.next = null
-    }
-}
+// class Node {
+//     constructor(value){
+//         this.value = value;
+//         this.next = null
+//     }
+// }
 
-class StackLinkedList {
+// class StackLinkedList {
   
-    constructor(){
-      this.length = 0;
-      this.top = null;
-    }
+//     constructor(){
+//       this.length = 0;
+//       this.top = null;
+//     }
   
-    push(value){
-        const newNode = new Node(value)
-        newNode.next = this.top;
-        this.top = newNode;
-        this.length++;
-      return this.top;
-    }
+//     push(value){
+//         const newNode = new Node(value)
+//         newNode.next = this.top;
+//         this.top = newNode;
+//         this.length++;
+//       return this.top;
+//     }
 
-    peek(){
-      if (this.top === null) return undefined;
-      return this.top.value;
-    }
-    isEmpty() {
-        return this.length === 0;
-      }
-    pop(){
-      if (this.top === null) return undefined;
-      const lastItem = this.peek()
-      this.top = this.top.next;
-      this.length--;
-      return lastItem
-    }
-    printHistory() {
-        let current = this.top;
-        const history = [];
-        while (current) {
-          history.push(current.value);
-          current = current.next;
-        }
-        console.log("Stack History:", history.reverse()); // top to bottom
-        console.log("Current Page:", this.peek());
-      }
+//     peek(){
+//       if (this.top === null) return undefined;
+//       return this.top.value;
+//     }
+//     isEmpty() {
+//         return this.length === 0;
+//       }
+//     pop(){
+//       if (this.top === null) return undefined;
+//       const lastItem = this.peek()
+//       this.top = this.top.next;
+//       this.length--;
+//       return lastItem
+//     }
+//     printHistory() {
+//         let current = this.top;
+//         const history = [];
+//         while (current) {
+//           history.push(current.value);
+//           current = current.next;
+//         }
+//         console.log("Stack History:", history.reverse()); // top to bottom
+//         console.log("Current Page:", this.peek());
+//       }
   
+//   }
+  
+//   const historyLinkedList = new StackLinkedList();
+
+
+let products = [
+  {
+      price: 100,
+      discounts: [
+          { tag: "seasonal", type: "percentage", value: 10 },
+          { tag: "seasonal", type: "flat", value: 5 },
+          { tag: "loyalty", type: "percentage", value: 5 }
+      ]
+  },
+  {
+      price: 200,
+      discounts: [
+          { tag: "seasonal", type: "percentage", value: 15 },
+          { tag: "loyalty", type: "flat", value: 10 },
+          { tag: "loyalty", type: "percentage", value: 20 }
+      ]
   }
-  
-  const historyLinkedList = new StackLinkedList();
+];
